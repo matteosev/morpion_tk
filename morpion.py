@@ -112,7 +112,7 @@ else :
 
 if sys.platform == "linux" :
 	donnees = open(".cache/donnee.txt","a")
-elif sys.platform == "windows":
+elif sys.platform == "win32" or "win64":
 	donnees = open(".cache\donnee.txt","a")
 
 donnees.write("\nPartie commencée le " + str(datetime.now().day) + "/" + str(datetime.now().month) + "/" + str(datetime.now().year) + " à " + str(datetime.now().hour) + ":" + str(datetime.now().minute) + ":" + str(datetime.now().second))
