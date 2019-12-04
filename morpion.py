@@ -3,7 +3,7 @@ from tkinter.font import *
 from tkinter.messagebox import *
 from datetime import *
 import os
-        
+import webbrowser        
 def creer_quadrillage():
     # crée un carré
     canva.create_line(100,100,400,100)
@@ -115,12 +115,19 @@ if sys.platform == "linux" :
 elif sys.platform == "win32" or "win64":
 	donnees = open(".cache\donnee.txt","a")
 
-donnees.write("Partie commencée le " + str(datetime.now().day) + "/" + str(datetime.now().month) + "/" + str(datetime.now().year) + " à " + str(datetime.now().hour) + ":" + str(datetime.now().minute) + ":" + str(datetime.now().second) + " par " + os.getenv("USERNAME") + "\n")
+def open_source():
+    webbrowser.open("https://github.com/matteosev/morpion_tk")
+    
+donnees.write("\nPartie commencée le " + str(datetime.now().day) + "/" + str(datetime.now().month) + "/" + str(datetime.now().year) + " à " + str(datetime.now().hour) + ":" + str(datetime.now().minute) + ":" + str(datetime.now().second) + " par " + os.getenv("USERNAME"))
 donnees.close()
 
 root = Tk()
 root.resizable(width = FALSE, height = FALSE)
 root.title("Morpion")
+
+menu = Menu()
+menu.add_command(label = "code source", command = open_source)
+root.config(menu = menu)
 
 top_frame = Frame(root)
 top_frame.pack(side = TOP)
