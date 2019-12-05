@@ -38,7 +38,8 @@ def verif():
     return ""
 
 def clic(event):
-    global tour 
+    global tour
+    print(tour)
     global winner
     global score_player1
     global score_player2
@@ -80,6 +81,7 @@ def clic(event):
         elif winner == "x":
             score_p2.set(score_p2.get() + 1)
             canva.bind('<Button-1>',func=NONE)
+			
 
 def creer_cases():
     global liste_cases
@@ -89,10 +91,12 @@ def creer_cases():
             liste_cases.append([x,y,""])
 
 def new_game():
+    global tour
     canva.delete(ALL)
     creer_quadrillage()
     creer_cases()
     canva.bind("<Button-1>",clic)
+    tour = 0
 
 def recup_noms():
     global p1
