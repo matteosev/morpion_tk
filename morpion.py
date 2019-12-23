@@ -3,7 +3,8 @@ from tkinter.font import *
 from tkinter.messagebox import *
 from datetime import *
 import os
-import webbrowser        
+import webbrowser
+
 def creer_quadrillage():
     # crée un carré
     canva.create_line(100,100,400,100)
@@ -39,7 +40,7 @@ def verif():
 
 def clic(event):
     global tour
-    print(tour)
+    #print(tour)
     global winner
     global score_player1
     global score_player2
@@ -67,7 +68,7 @@ def clic(event):
                 else:
                     return 
         tour += 1
-        print(liste_cases)
+        #print(liste_cases)
         rempli = True
         winner = verif()
         for case in range(9):
